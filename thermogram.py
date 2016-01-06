@@ -1,4 +1,7 @@
 import logging
+import os
+
+tokenpath = os.path.dirname(os.path.realpath(__file__)) + "/token"
 
 logging.basicConfig( level=logging.INFO)
 
@@ -8,7 +11,7 @@ import requests
 class Bot:
     def __init__(self):
         try:
-            tokenFile = open('token','r')
+            tokenFile = open(tokenpath,'r')
             self.token = tokenFile.read().strip()
             tokenFile.close()
         except IOError: 
@@ -42,7 +45,6 @@ class Bot:
                 }
         ret = self.request("SendMessage",params)
     
-    def 
 
 
 # GUIDA
