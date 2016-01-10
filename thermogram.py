@@ -2,6 +2,7 @@ import logging
 import os
 
 tokenpath = os.path.dirname(os.path.realpath(__file__)) + "/token"
+chatidpath = os.path.dirname(os.path.realpath(__file__)) + "/chatid"
 
 logging.basicConfig( level=logging.INFO)
 
@@ -21,10 +22,10 @@ class Bot:
 
         logging.info("caricata token.")
         
-        self.queue = []
+        #self.queue = []
         
         try:
-            chatidFile = open('chatid','r')
+            chatidFile = open(chatidpath,'r')
             self.chat_id = chatidFile.read().strip()
             chatidFile.close()
         except IOError:
