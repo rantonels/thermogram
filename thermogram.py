@@ -17,10 +17,12 @@ class Bot:
 
 
         logging.info("caricata token.")
-
+        
+        self.queue = []
+        
         try:
             chatidFile = open('chatid','r')
-            self.chat_id = tokenFile.read().strip()
+            self.chat_id = chatidFile.read().strip()
             chatidFile.close()
         except IOError:
             logging.error("Non ho trovato il file di chatId. E' necessario creare un file 'chatid' con la chatid telegram per il bot")
