@@ -20,8 +20,21 @@ class Bot:
 
 
         logging.info("caricata token.")
-
-        self.chat_id = -94452612 # magic number: chat_id del gruppo termostato antonelli
+        
+        self.queue = []
+        
+        try:
+            chatidFile = open('chatid','r')
+            self.chat_id = chatidFile.read().strip()
+            chatidFile.close()
+        except IOError:
+            logging.error("Non ho trovato il file di chatId. E' necessario creare un file 'chatid' con la chatid telegram per il bot")
+            # In ogni caso questo file NON deve essere tracciato da git - viene ignorato perche' menzionato nel .gitignore.")
+            exit()
+        
+        logging.info("caricata chatId.")
+    
+            #-94452612 # magic number: chat_id del gruppo termostato antonelli
         
         self.queue = []
 
